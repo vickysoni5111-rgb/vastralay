@@ -65,11 +65,11 @@ export default function CollectionCardOne() {
 
       </div>
 
-      {/* Right Video Player (first.mp4) */}
+      {/* Right Video Player (Cloudinary Link) */}
       <div className="lg:col-span-5 z-10 flex justify-center">
         <div className="relative group rounded-2xl overflow-hidden bg-black/40 border border-[#D8C092]/30 shadow-md w-full max-w-[280px] aspect-[3/4]">
           <video
-            src="/Videos/first.mp4"
+            src="https://res.cloudinary.com/wqsxsuzd/video/upload/v1791738588/first.mp4"
             autoPlay
             muted
             loop
