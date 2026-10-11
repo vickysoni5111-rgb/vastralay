@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronLeft, ChevronRight, ArrowRight, ShieldCheck, Truck, RefreshCw, Headphones } from 'lucide-react';
-
+import  Festival from './Festival/page';
 import BannerPage from './banner/page';
 import CardPage from './card/page';
 import VideoSectionPage from './Videos/page';
@@ -208,7 +208,7 @@ export default function HomePage() {
  
 
 
-
+<Festival/>
 
         <CardPage/>
       <Myvideo/>
