@@ -14,7 +14,7 @@ import {
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-
+import { searchProducts } from '../data/searchProducts';
 import WishlistButton from '../components/WishlistButton';
 import AddToCartButton from '../components/AddToCartButton';
 import { productsData, Product } from '../data/products';
@@ -47,7 +47,10 @@ function CollectionContent() {
     const category = categoryParam || 'All';
     setSelectedCategory(category);
   }, [categoryParam]);
-
+   const searchParam = searchParams.get('search');
+   useEffect(() => {
+     setSearchQuery(searchParam ?? '');
+   }, [searchParam]);
   const productHref = (id: string | number) =>
     `/product?id=${encodeURIComponent(String(id))}`;
 

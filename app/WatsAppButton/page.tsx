@@ -11,7 +11,7 @@ export default function WhatsAppButton() {
   }, []);
 
   const PHONE_NUMBER = '9782978218';
-  const DEFAULT_MESSAGE = 'Namaste! Mujhe Ankit Tewari Jaipur collection ke baare me inquiry karni thi.';
+const DEFAULT_MESSAGE = 'Hello! I would like to inquire about the Vastralay Jaipur collection.';
 
   if (!mounted) return null;
 

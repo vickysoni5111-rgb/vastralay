@@ -1,3 +1,4 @@
+import { productContent } from './productContent';
 export interface Product {
   id: string;
   title: string;
@@ -13,7 +14,7 @@ export interface Product {
   description?: string;
 }
 
-export const productsData: Product[] = [
+const baseProducts: Product[] = [
   {
     id: '1',
     title: 'PEACH POLY GEORGETTE FLORAL PRINTED SUIT SET',
@@ -1431,7 +1432,7 @@ export const productsData: Product[] = [
 {
   id: '125',
   title: 'Royal Ethnic Pink Kurti Set',
-  category: 'Kurti', // Yeh exact 'Kurti' hona chahiye
+  category: 'Kurti', 
   price: 2499,
   originalPrice: 3499,
   discount: '30% OFF',
@@ -1452,4 +1453,337 @@ export const productsData: Product[] = [
     
   ],
 },
+
+
+
+// female cute Childern cloths 
+
+
+{
+  id: '126',
+  title: 'Classic Printed Ethnic Casual Shirt',
+  category: 'Shirts',
+  price: 2799,
+  originalPrice: 3799,
+  discount: '26% OFF',
+  rating: 4.8,
+  color: 'MULTI',
+  fit: 'Slim Fit',
+  fabric: 'Cotton Blend',
+images: [
+    '/Childern/childred.png',
+  '/Childern/childbackred.png',
+
+  '/Childern/childredmainpic.png',
+
+],
+
+},
+
+
+{
+  id: '127',
+  title: 'Classic Printed Ethnic Casual Shirt',
+  category: 'Shirts',
+  price: 2799,
+  originalPrice: 3799,
+  discount: '26% OFF',
+  rating: 4.8,
+  color: 'MULTI',
+  fit: 'Slim Fit',
+  fabric: 'Cotton Blend',
+images: [
+    '/Childern/yellowfront.png',
+  '/Childern/yellowback.png',
+
+  '/Childern/yellowmain.png ',
+
+],
+
+},
+
+{
+  id: '128',
+  title: 'Classic Printed Ethnic Casual Shirt',
+  category: 'Shirts',
+  price: 2799,
+  originalPrice: 3799,
+  discount: '26% OFF',
+  rating: 4.8,
+  color: 'MULTI',
+  fit: 'Slim Fit',
+  fabric: 'Cotton Blend',
+images: [
+    '/Childern/childwhiteprintned.png ',
+  '/Childern/childwhiteprintnedback.png ',
+
+  '/Childern/childwhiteprintnedmain.png  ',
+
+],
+
+},
+
+{
+  id: '129',
+  title: 'Classic Printed Ethnic Casual Shirt',
+  category: 'Shirts',
+  price: 2799,
+  originalPrice: 3799,
+  discount: '26% OFF',
+  rating: 4.8,
+  color: 'MULTI',
+  fit: 'Slim Fit',
+  fabric: 'Cotton Blend',
+images: [
+    '/Childern/printedranicolor.png ',
+  '/Childern/printedranicolorback.png ',
+
+  '/Childern/printedranicolormain.png   ',
+
+],
+
+},
+
+{
+  id: '130',
+  title: 'Classic Printed Ethnic Casual Shirt',
+  category: 'Shirts',
+  price: 2799,
+  originalPrice: 3799,
+  discount: '26% OFF',
+  rating: 4.8,
+  color: 'MULTI',
+  fit: 'Slim Fit',
+  fabric: 'Cotton Blend',
+images: [
+    '/Childern/darkprintnedpink.png ',
+  '/Childern/darkprintnedpinkback.png  ',
+
+  '/Childern/darkprintnedpinkmain.png      ',
+
+],
+
+},
+{
+  id: '131',
+  title: 'Classic Printed Ethnic Casual Shirt',
+  category: 'Shirts',
+  price: 2799,
+  originalPrice: 3799,
+  discount: '26% OFF',
+  rating: 4.8,
+  color: 'MULTI',
+  fit: 'Slim Fit',
+  fabric: 'Cotton Blend',
+images: [
+    '/Childern/navyblue.png  ',
+  '/Childern/navyblueback.png  ',
+
+  '/Childern/navybluemain.png      ',
+
+],
+
+},
+
+{
+  id: '132',
+  title: 'Classic Printed Ethnic Casual Shirt',
+  category: 'Shirts',
+  price: 2799,
+  originalPrice: 3799,
+  discount: '26% OFF',
+  rating: 4.8,
+  color: 'MULTI',
+  fit: 'Slim Fit',
+  fabric: 'Cotton Blend',
+images: [
+    '/Childern/halkayellow.png  ',
+  '/Childern/halkayellowback.png  ',
+
+  '/Childern/halkayellowmain.png',
+
+],
+
+},
+
+{
+  id: '133',
+  title: 'Classic Printed Ethnic Casual Shirt',
+  category: 'Shirts',
+  price: 2799,
+  originalPrice: 3799,
+  discount: '26% OFF',
+  rating: 4.8,
+  color: 'MULTI',
+  fit: 'Slim Fit',
+  fabric: 'Cotton Blend',
+images: [
+    '/Childern/redprintned.png ',
+  '/Childern/redprintnedbackend.png ',
+
+  '/Childern/redprintnedmain.png',
+
+],
+
+},
+
+{
+  id: '134',
+  title: 'Classic Printed Ethnic Casual Shirt',
+  category: 'Shirts',
+  price: 2799,
+  originalPrice: 3799,
+  discount: '26% OFF',
+  rating: 4.8,
+  color: 'MULTI',
+  fit: 'Slim Fit',
+  fabric: 'Cotton Blend',
+images: [
+    '/Childern/pinkprinted.png  ',
+  '/Childern/pinkprintedback.png ',
+
+  '/Childern/pinkprintedmain.png',
+
+],
+
+},
+
+
+{
+  id: '135',
+  title: 'Classic Printed Ethnic Casual Shirt',
+  category: 'Shirts',
+  price: 2799,
+  originalPrice: 3799,
+  discount: '26% OFF',
+  rating: 4.8,
+  color: 'MULTI',
+  fit: 'Slim Fit',
+  fabric: 'Cotton Blend',
+images: [
+    '/Childern/newredprintned.png  ',
+  '/Childern/newredprintnedbackside.png ',
+
+  '/Childern/newredmain.png ',
+
+],
+
+},
+
+
+{
+  id: '136',
+  title: 'Classic Printed Ethnic Casual Shirt',
+  category: 'Shirts',
+  price: 2799,
+  originalPrice: 3799,
+  discount: '26% OFF',
+  rating: 4.8,
+  color: 'MULTI',
+  fit: 'Slim Fit',
+  fabric: 'Cotton Blend',
+images: [
+    '/Childern/flowerdress.png ',
+  '/Childern/flowerdressbackend.png ',
+
+  '/Childern/flowerdressmain.png  ',
+
+],
+
+},
+  
+{
+  id: '137',
+  title: 'Classic Printed Ethnic Casual Shirt',
+  category: 'Shirts',
+  price: 2799,
+  originalPrice: 3799,
+  discount: '26% OFF',
+  rating: 4.8,
+  color: 'MULTI',
+  fit: 'Slim Fit',
+  fabric: 'Cotton Blend',
+images: [
+    '/Childern/kesariya.png ',
+  '/Childern/ kesariyaback.png ',
+
+
+
+],
+
+},
+{
+  id: '138',
+  title: 'Classic Printed Ethnic Casual Shirt',
+  category: 'Shirts',
+  price: 2799,
+  originalPrice: 3799,
+  discount: '26% OFF',
+  rating: 4.8,
+  color: 'MULTI',
+  fit: 'Slim Fit',
+  fabric: 'Cotton Blend',
+images: [
+    '/Childern/design.png  ',
+  '/Childern/designbackend.png  ',
+],
+
+},
+  {
+  id: '139',
+  title: 'Classic Printed Ethnic Casual Shirt',
+  category: 'Shirts',
+  price: 2799,
+  originalPrice: 3799,
+  discount: '26% OFF',
+  rating: 4.8,
+  color: 'MULTI',
+  fit: 'Slim Fit',
+  fabric: 'Cotton Blend',
+images: [
+    '/Childern/dress.png',
+  '/Childern/dressback.png',
+],
+
+},
+  
+    {
+  id: '140',
+  title: 'Classic Printed Ethnic Casual Shirt',
+  category: 'Shirts',
+  price: 2799,
+  originalPrice: 3799,
+  discount: '26% OFF',
+  rating: 4.8,
+  color: 'MULTI',
+  fit: 'Slim Fit',
+  fabric: 'Cotton Blend',
+images: [
+    '/Childern/cofe.png',
+  '/Childern/cofeback.png  ',
+],
+
+},
+    {
+  id: '141',
+  title: 'Classic Printed Ethnic Casual Shirt',
+  category: 'Shirts',
+  price: 2799,
+  originalPrice: 3799,
+  discount: '26% OFF',
+  rating: 4.8,
+  color: 'MULTI',
+  fit: 'Slim Fit',
+  fabric: 'Cotton Blend',
+images: [
+    '/Childern/dress1.png',
+  '/Childern/dress1back.png ',
+],
+
+},
+  
 ];
+export const productsData: Product[] = baseProducts.map((product) => ({
+  ...product,
+  ...productContent[product.id],
+}));

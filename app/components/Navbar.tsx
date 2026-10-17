@@ -1,9 +1,10 @@
+
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 import {
   Search,
   Heart,
@@ -15,6 +16,7 @@ import {
   MessageCircle,
 } from 'lucide-react';
 import { useShop } from '../context/ShopContext';
+import { searchProducts } from '../data/searchProducts';
 
 // Count badge: 0 par hide, add hone par pop animation ke saath dikhega
 function CountBadge({ count }: { count: number }) {
@@ -27,6 +29,145 @@ function CountBadge({ count }: { count: number }) {
     >
       {count > 99 ? '99+' : count}
     </span>
+  );
+}
+
+type SearchBoxProps = {
+  placeholder: string;
+  inputClassName: string;
+  iconWrapperClassName: string;
+  iconSize: number;
+  onNavigate?: () => void;
+};
+
+// Search box: type karte hi products dikhte hain, Enter dabane par /collection?search=... khulta hai
+function SearchBox({
+  placeholder,
+  inputClassName,
+  iconWrapperClassName,
+  iconSize,
+  onNavigate,
+}: SearchBoxProps) {
+  const router = useRouter();
+  const [query, setQuery] = useState('');
+  const [open, setOpen] = useState(false);
+  const boxRef = useRef<HTMLDivElement>(null);
+
+  const results = useMemo(
+    () => (query.trim() ? searchProducts(query) : []),
+    [query]
+  );
+  const suggestions = results.slice(0, 6);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (boxRef.current && !boxRef.current.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const goToResults = () => {
+    const trimmed = query.trim();
+    if (!trimmed) return;
+    setOpen(false);
+    onNavigate?.();
+    router.push(`/collection?search=${encodeURIComponent(trimmed)}`);
+  };
+
+  const handlePick = () => {
+    setOpen(false);
+    setQuery('');
+    onNavigate?.();
+  };
+
+  return (
+    <div ref={boxRef} className="relative w-full">
+      <span className={iconWrapperClassName}>
+        <Search size={iconSize} />
+      </span>
+      <input
+        type="text"
+        suppressHydrationWarning
+        value={query}
+        placeholder={placeholder}
+        onChange={(e) => {
+          setQuery(e.target.value);
+          setOpen(true);
+        }}
+        onFocus={() => setOpen(true)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') goToResults();
+          if (e.key === 'Escape') setOpen(false);
+        }}
+        className={inputClassName}
+      />
+
+      {open && query.trim() && (
+        <div className="absolute left-0 right-0 top-full z-50 mt-2 overflow-hidden rounded-2xl border border-[#D8C092] bg-white shadow-[0_15px_40px_rgba(53,19,30,0.18)]">
+          {suggestions.length > 0 ? (
+            <>
+              <ul className="max-h-[380px] divide-y divide-[#F0E6D2] overflow-y-auto">
+                {suggestions.map((item) => (
+                  <li key={item.id}>
+                    <Link
+                      href={`/product?id=${encodeURIComponent(item.id)}`}
+                      onClick={handlePick}
+                      className="flex items-center gap-3 px-3 py-2.5 transition hover:bg-[#FAF4EA]"
+                    >
+                      <div className="relative h-14 w-11 shrink-0 overflow-hidden rounded-md bg-[#F0E9E2]">
+                        <Image
+                          src={item.images[0].trim()}
+                          alt={item.title}
+                          fill
+                          unoptimized
+                          referrerPolicy="no-referrer"
+                          sizes="44px"
+                          className="object-cover object-top"
+                        />
+                      </div>
+
+                      <div className="min-w-0 flex-1">
+                        <p className="line-clamp-1 text-xs font-bold text-[#352923]">
+                          {item.title}
+                        </p>
+                        <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-wider text-[#B99450]">
+                          {item.color}
+                        </p>
+                      </div>
+
+                      <span className="shrink-0 text-xs font-extrabold text-[#541622]">
+                        ₹{item.price}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+
+              <button
+                type="button"
+                onClick={goToResults}
+                className="w-full border-t border-[#F0E6D2] bg-[#FAF4EA] px-4 py-3 text-center text-xs font-bold uppercase tracking-wider text-[#541622] transition hover:bg-[#F3E9D8]"
+              >
+                View all {results.length}{' '}
+                {results.length === 1 ? 'result' : 'results'}
+              </button>
+            </>
+          ) : (
+            <div className="px-4 py-6 text-center">
+              <p className="text-xs font-bold text-[#352923]">
+                No products found for “{query.trim()}”
+              </p>
+              <p className="mt-1 text-[11px] text-gray-500">
+                Try a color like red, blue or pink, or a type like kurti or shirt.
+              </p>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
   );
 }
 
@@ -48,16 +189,19 @@ const shownWishlist = mounted ? wishlistCount : 0;
 
   const categoryLinks = [
     { name: 'Home', href: '/' },
+        {name: 'About Us', href: '/About' },
     { name: 'All Collection', href: '/collection' },
     { name: 'Kurti', href: '/Kurti' },
     { name: 'Shirts', href: '/collection?category=Shirts' },
-    { name: 'About Us', href: '/About' },
+    {name: 'Childern',href:'/Childern'},
+
     { name: 'Contact', href: '/Contact' },
   ];
 
   const isActive = (item: { name: string; href: string }) => {
     if (item.name === 'Home') return pathname === '/';
-    if (item.name === 'About Us') return pathname === '/About';
+    if (item.name === 'Childern') return pathname === '/Childern';
+        if (item.name === 'About Us') return pathname === '/About';
     if (item.name === 'Contact') return pathname === '/Contact';
     if (item.name === 'Kurti') return pathname === '/Kurti';
     if (item.name === 'All Collection') return pathname === '/collection' && !currentCategory;
@@ -114,17 +258,12 @@ const shownWishlist = mounted ? wishlistCount : 0;
 
           {/* SEARCH BAR (Center & Spacious) */}
           <div className="hidden md:flex flex-1 max-w-xl mx-6">
-            <div className="relative w-full">
-              <span className="absolute inset-y-0 left-0 flex items-center pl-4 text-[#8F1D2C]/60">
-                <Search size={18} />
-              </span>
-              <input
-                type="text"
-                suppressHydrationWarning
-                placeholder="Search kurtis, traditional shirts, collections..."
-                className="w-full rounded-full border border-[#D8C092] bg-[#FAF4EA]/70 py-2.5 pl-11 pr-4 text-xs font-medium text-[#352923] placeholder-gray-500 shadow-inner focus:border-[#541622] focus:bg-white focus:outline-none transition-all"
-              />
-            </div>
+            <SearchBox
+              placeholder="Search kurtis, traditional shirts, collections..."
+              iconWrapperClassName="absolute inset-y-0 left-0 flex items-center pl-4 text-[#8F1D2C]/60"
+              iconSize={18}
+              inputClassName="w-full rounded-full border border-[#D8C092] bg-[#FAF4EA]/70 py-2.5 pl-11 pr-4 text-xs font-medium text-[#352923] placeholder-gray-500 shadow-inner focus:border-[#541622] focus:bg-white focus:outline-none transition-all"
+            />
           </div>
 
           {/* RIGHT ACTIONS */}
@@ -166,14 +305,7 @@ const shownWishlist = mounted ? wishlistCount : 0;
               <MessageCircle size={18} />
             </a>
 
-            {/* Login Button */}
-            <Link
-              href="/account"
-              className="flex items-center gap-1.5 rounded-full bg-[#EFA00F] px-4 py-2 text-xs font-bold uppercase tracking-wider text-[#352923] shadow-md transition hover:bg-[#df930c]"
-            >
-              <UserRound size={15} />
-              <span>Login</span>
-            </Link>
+           
 
             {/* Mobile Menu Toggle */}
             <button
@@ -213,16 +345,13 @@ const shownWishlist = mounted ? wishlistCount : 0;
         <div className="border-t border-[#D8C092] bg-[#FFFCF6] px-5 py-5 shadow-2xl lg:hidden">
           {/* Mobile Search */}
           <div className="mb-4">
-            <div className="relative w-full">
-              <span className="absolute inset-y-0 left-0 flex items-center pl-3.5 text-gray-400">
-                <Search size={16} />
-              </span>
-              <input
-                type="text"
-                placeholder="Search products..."
-                className="w-full rounded-full border border-[#D8C092] bg-[#FAF4EA] py-2.5 pl-10 pr-3 text-xs text-[#352923] focus:outline-none"
-              />
-            </div>
+            <SearchBox
+              placeholder="Search products..."
+              iconWrapperClassName="absolute inset-y-0 left-0 flex items-center pl-3.5 text-gray-400"
+              iconSize={16}
+              inputClassName="w-full rounded-full border border-[#D8C092] bg-[#FAF4EA] py-2.5 pl-10 pr-3 text-xs text-[#352923] focus:outline-none"
+              onNavigate={closeMobile}
+            />
           </div>
 
           <nav className="flex flex-col gap-2">

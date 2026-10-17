@@ -111,7 +111,7 @@ export function ShopProvider({ children }: { children: ReactNode }) {
         showToast('Wishlist se hata diya');
       } else {
         setWishlist((prev) => [...prev, toItem(product)]);
-        showToast('Wishlist me add ho gaya ♥');
+        showToast('Your Product is Add in Wishlist ♥');
       }
     },
     [wishlist, showToast]
@@ -135,7 +135,7 @@ export function ShopProvider({ children }: { children: ReactNode }) {
         }
         return [...prev, { ...item, size, quantity: qty }];
       });
-      showToast('Cart me add ho gaya');
+      showToast('Your Product is Add in Cart');
     },
     [showToast]
   );
@@ -205,11 +205,14 @@ export function ShopProvider({ children }: { children: ReactNode }) {
   return (
     <ShopContext.Provider value={value}>
       {children}
-      {toast && (
-        <div className="fixed bottom-6 left-1/2 z-[100] -translate-x-1/2 rounded-full bg-[#35131E] px-5 py-3 text-xs font-bold text-white shadow-xl">
-          {toast}
-        </div>
-      )}
+   {toast && (
+  <div className="fixed bottom-6 left-1/2 z-[100] flex -translate-x-1/2 items-center gap-2 rounded-full bg-[#16A34A] px-5 py-3 text-xs font-bold text-white shadow-xl ring-2 ring-white/30">
+    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-[11px] text-[#16A34A]">
+      ✓
+    </span>
+    {toast}
+  </div>
+)}
     </ShopContext.Provider>
   );
 }
