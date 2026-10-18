@@ -20,7 +20,7 @@ export default function CartPage() {
       (i, n) => `${n + 1}. ${i.title} (ID: ${i.id}) | Size: ${i.size} | Qty: ${i.quantity} | ₹${i.price * i.quantity}`
     );
     return encodeURIComponent(
-      `Namaste! Mujhe ye order karna hai:\n\n${lines.join('\n')}\n\nTotal: ₹${cartTotal}`
+`Hello! I would like to place an order for the following items:\n\n${lines.join('\n')}\n\nTotal: ₹${cartTotal}`
     );
   };
 
@@ -56,7 +56,7 @@ export default function CartPage() {
               <ShoppingBag className="h-7 w-7 text-[#800A2D]" />
             </div>
             <h2 className="font-serif text-2xl font-semibold text-[#35201D]">Your cart is empty</h2>
-            <p className="mt-2 text-sm text-[#8A786D]">Abhi tak kuch add nahi kiya.</p>
+            <p className="mt-2 text-sm text-[#8A786D]">Nothing has been added yet.</p>
             <Link
               href="/collection"
               className="mt-6 inline-block rounded-lg bg-[#800A2D] px-6 py-3 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-[#5F071F]"

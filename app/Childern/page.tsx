@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -22,6 +22,12 @@ const PHONE_NUMBER = '9782978218';
 // Sirf children ki dress: id 126 se 141 tak
 const CHILD_ID_START = 126;
 const CHILD_ID_END = 141;
+
+const sectionBanners = [
+  { id: 1, image: '/banner/banner.png', alt: 'Ankit Tewari Jaipur banner 1' },
+  { id: 2, image: '/banner/banner15.png', alt: 'Ankit Tewari Jaipur banner 2' },
+  { id: 3, image: '/banner/banner89.png', alt: 'Ankit Tewari Jaipur banner 3' },
+];
 
 const heroSlides = [
   {
@@ -62,12 +68,110 @@ const heroSlides = [
   },
 ];
 
+// Grid ke columns (Tailwind breakpoints ke hisaab se): 1 / 2 / 3 / 4
+function useGridColumns() {
+  const [cols, setCols] = useState(4);
+
+  useEffect(() => {
+    const update = () => {
+      const w = window.innerWidth;
+      setCols(w >= 1280 ? 4 : w >= 1024 ? 3 : w >= 640 ? 2 : 1);
+    };
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
+
+  return cols;
+}
+
+/* ============================================================
+   SECTION BANNER (3 rows ke baad)
+   ============================================================ */
+function SectionBanner() {
+  const [current, setCurrent] = useState(0);
+  const total = sectionBanners.length;
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % total);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [total, current]);
+
+  const goNext = () => setCurrent((prev) => (prev + 1) % total);
+  const goPrev = () => setCurrent((prev) => (prev - 1 + total) % total);
+
+  return (
+    <div className="relative my-2 overflow-hidden rounded-3xl border border-[#E8DCD1] bg-[#F0E9E2] shadow-[0_12px_40px_rgba(53,19,30,0.15)]">
+      {/* IMAGES */}
+      <div className="grid">
+        {sectionBanners.map((b, index) => (
+          <div
+            key={b.id}
+            aria-hidden={index !== current}
+            className={`col-start-1 row-start-1 transition-opacity duration-700 ease-in-out ${
+              index === current ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <Image
+              src={b.image}
+              alt={b.alt}
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="block h-auto w-full object-cover"
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* ARROWS */}
+      <button
+        type="button"
+        onClick={goPrev}
+        aria-label="Previous banner"
+        className="absolute left-3 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/40 bg-black/35 p-2 text-white backdrop-blur-md transition hover:bg-black/60"
+      >
+        <ChevronLeft size={18} />
+      </button>
+      <button
+        type="button"
+        onClick={goNext}
+        aria-label="Next banner"
+        className="absolute right-3 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/40 bg-black/35 p-2 text-white backdrop-blur-md transition hover:bg-black/60"
+      >
+        <ChevronRight size={18} />
+      </button>
+
+      {/* DOTS */}
+      <div className="absolute inset-x-0 bottom-3 z-10 flex justify-center">
+        <div className="flex items-center gap-2 rounded-full bg-black/35 px-3 py-1.5 backdrop-blur-md">
+          {sectionBanners.map((b, index) => (
+            <button
+              key={b.id}
+              type="button"
+              onClick={() => setCurrent(index)}
+              aria-label={`Go to banner ${index + 1}`}
+              className={`h-2.5 rounded-full bg-white transition-all duration-500 ${
+                index === current ? 'w-7 opacity-100' : 'w-2.5 opacity-60 hover:opacity-90'
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ============================================================
+   CHILDREN HERO
+   ============================================================ */
 function ChildrenHero({ onExplore }: { onExplore: () => void }) {
   const [current, setCurrent] = useState(0);
   const total = heroSlides.length;
   const slide = heroSlides[current];
 
-  // Auto slide every 5 seconds (manual click par timer reset ho jata hai)
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % total);
@@ -195,6 +299,10 @@ function ChildrenHero({ onExplore }: { onExplore: () => void }) {
 export default function ChildrenPage() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
+  // 3 rows ke baad banner: (columns x 3) cards ke baad
+  const columns = useGridColumns();
+  const bannerAfterIndex = columns * 3 - 1;
+
   // Sirf id 126 se 141 tak ke products
   const childrenProducts = productsData.filter((item) => {
     const idNum = Number(item.id);
@@ -253,89 +361,97 @@ export default function ChildrenPage() {
         ) : (
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4">
             {childrenProducts.map((item, index) => (
-              <article
-                key={item.id}
-                className="group flex flex-col overflow-hidden rounded-2xl border border-[#E8DCD1] bg-white shadow-[0_5px_22px_rgba(53,19,30,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-[#D3B8A1] hover:shadow-[0_18px_38px_rgba(53,19,30,0.13)]"
-              >
-                {/* IMAGE + WISHLIST */}
-                <div className="relative">
-                  <Link
-                    href={productHref(item.id)}
-                    aria-label={`View ${item.title}`}
-                    className="relative block aspect-[3/4] w-full overflow-hidden bg-[#F0E9E2]"
-                  >
-                    <Image
-                      src={item.images[0]}
-                      alt={item.title}
-                      fill
-                      unoptimized
-                      referrerPolicy="no-referrer"
-                      priority={index < 4}
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.045]"
-                    />
-                  </Link>
-
-                  <WishlistButton product={item} />
-
-                  {/* QUICK VIEW + ADD TO CART */}
-                  <div className="absolute inset-x-3 bottom-3 z-10 flex translate-y-3 gap-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                    <button
-                      type="button"
-                      onClick={() => setSelectedProduct(item)}
-                      className="flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-white/80 bg-white/95 py-3 text-[10px] font-extrabold uppercase tracking-wide text-[#382622] shadow-lg transition-colors hover:bg-[#F5E9DB]"
-                    >
-                      <Search className="h-3.5 w-3.5" />
-                      Quick View
-                    </button>
-
-                    <AddToCartButton product={item} />
-                  </div>
-                </div>
-
-                {/* PRODUCT DETAILS */}
-                <div className="flex flex-1 flex-col p-4 sm:p-5">
-                  <div>
-                    <span className="inline-flex rounded-md border border-[#F0DDE0] bg-[#FBF0F1] px-2.5 py-1 text-[9px] font-extrabold uppercase tracking-[0.12em] text-[#800A2D]">
-                      Kids Dress
-                    </span>
-
+              <Fragment key={item.id}>
+                <article
+                  className="group flex flex-col overflow-hidden rounded-2xl border border-[#E8DCD1] bg-white shadow-[0_5px_22px_rgba(53,19,30,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-[#D3B8A1] hover:shadow-[0_18px_38px_rgba(53,19,30,0.13)]"
+                >
+                  {/* IMAGE + WISHLIST */}
+                  <div className="relative">
                     <Link
                       href={productHref(item.id)}
-                      className="mt-2.5 block line-clamp-1 text-sm font-bold text-[#302321] transition-colors hover:text-[#800A2D] sm:text-[15px]"
+                      aria-label={`View ${item.title}`}
+                      className="relative block aspect-[3/4] w-full overflow-hidden bg-[#F0E9E2]"
                     >
-                      {item.title}
+                      <Image
+                        src={item.images[0]}
+                        alt={item.title}
+                        fill
+                        unoptimized
+                        referrerPolicy="no-referrer"
+                        priority={index < 4}
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.045]"
+                      />
                     </Link>
+
+                    <WishlistButton product={item} />
+
+                    {/* QUICK VIEW + ADD TO CART */}
+                    <div className="absolute inset-x-3 bottom-3 z-10 flex translate-y-3 gap-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                      <button
+                        type="button"
+                        onClick={() => setSelectedProduct(item)}
+                        className="flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-white/80 bg-white/95 py-3 text-[10px] font-extrabold uppercase tracking-wide text-[#382622] shadow-lg transition-colors hover:bg-[#F5E9DB]"
+                      >
+                        <Search className="h-3.5 w-3.5" />
+                        Quick View
+                      </button>
+
+                      <AddToCartButton product={item} />
+                    </div>
                   </div>
 
-                  <div className="mt-auto flex items-end justify-between gap-2 pt-4">
-                    <div className="flex flex-wrap items-baseline gap-2">
-                      <span className="text-lg font-extrabold tracking-tight text-[#2D211F]">
-                        ₹{item.price}
+                  {/* PRODUCT DETAILS */}
+                  <div className="flex flex-1 flex-col p-4 sm:p-5">
+                    <div>
+                      <span className="inline-flex rounded-md border border-[#F0DDE0] bg-[#FBF0F1] px-2.5 py-1 text-[9px] font-extrabold uppercase tracking-[0.12em] text-[#800A2D]">
+                        Kids Dress
                       </span>
 
-                      <span className="text-xs text-[#A69A91] line-through">
-                        ₹{item.originalPrice}
+                      <Link
+                        href={productHref(item.id)}
+                        className="mt-2.5 block line-clamp-1 text-sm font-bold text-[#302321] transition-colors hover:text-[#800A2D] sm:text-[15px]"
+                      >
+                        {item.title}
+                      </Link>
+                    </div>
+
+                    <div className="mt-auto flex items-end justify-between gap-2 pt-4">
+                      <div className="flex flex-wrap items-baseline gap-2">
+                        <span className="text-lg font-extrabold tracking-tight text-[#2D211F]">
+                          ₹{item.price}
+                        </span>
+
+                        <span className="text-xs text-[#A69A91] line-through">
+                          ₹{item.originalPrice}
+                        </span>
+                      </div>
+
+                      <span className="shrink-0 rounded-md border border-[#D5E9D9] bg-[#EFF8F0] px-2 py-1 text-[10px] font-extrabold text-[#267442]">
+                        {item.discount}
                       </span>
                     </div>
 
-                    <span className="shrink-0 rounded-md border border-[#D5E9D9] bg-[#EFF8F0] px-2 py-1 text-[10px] font-extrabold text-[#267442]">
-                      {item.discount}
-                    </span>
+                    <div className="mt-4 border-t border-[#F0E7DF] pt-3">
+                      <Link
+                        href={productHref(item.id)}
+                        className="flex w-full items-center justify-center gap-2 rounded-lg border border-[#800A2D]/25 bg-white py-2.5 text-[10px] font-extrabold uppercase tracking-[0.12em] text-[#800A2D] transition-all duration-200 hover:border-[#800A2D] hover:bg-[#800A2D] hover:text-white"
+                      >
+                        <ShoppingBag className="h-4 w-4" />
+                        View Product
+                        <ArrowRight className="h-3.5 w-3.5" />
+                      </Link>
+                    </div>
                   </div>
+                </article>
 
-                  <div className="mt-4 border-t border-[#F0E7DF] pt-3">
-                    <Link
-                      href={productHref(item.id)}
-                      className="flex w-full items-center justify-center gap-2 rounded-lg border border-[#800A2D]/25 bg-white py-2.5 text-[10px] font-extrabold uppercase tracking-[0.12em] text-[#800A2D] transition-all duration-200 hover:border-[#800A2D] hover:bg-[#800A2D] hover:text-white"
-                    >
-                      <ShoppingBag className="h-4 w-4" />
-                      View Product
-                      <ArrowRight className="h-3.5 w-3.5" />
-                    </Link>
+                {/* 3 rows ke baad banner */}
+                {index === bannerAfterIndex && (
+                  <div className="col-span-full">
+                    <SectionBanner />
                   </div>
-                </div>
-              </article>
+                )}
+              </Fragment>
             ))}
           </div>
         )}

@@ -85,7 +85,7 @@ export default function Banner() {
               </Link>
 
               <a
-                href={`https://wa.me/91${PHONE_NUMBER}?text=Namaste!%20Mujhe%20is%20outfit%20ke%20bare%20me%20inquiry%20karni%20hai.`}
+            href={`https://wa.me/91${PHONE_NUMBER}?text=Hello!%20I%20would%20like%20to%20inquire%20about%20this%20outfit.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-5 py-3 rounded-full border border-white/20 bg-white/10 hover:bg-white/20 text-white text-xs font-bold tracking-wider uppercase backdrop-blur-md transition flex items-center gap-2"

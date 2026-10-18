@@ -137,7 +137,7 @@ function KurtiHero({ onExplore }: { onExplore: () => void }) {
               </button>
 
               <a
-                href={`https://wa.me/91${PHONE_NUMBER}?text=Namaste!%20Mujhe%20kurti%20collection%20ke%20bare%20me%20inquiry%20karni%20hai.`}
+              href={`https://wa.me/91${PHONE_NUMBER}?text=Hello!%20I%20would%20like%20to%20inquire%20about%20the%20kurti%20collection.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 rounded-full border border-white/30 bg-black/30 px-5 py-3 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-md transition hover:bg-black/50"
@@ -354,7 +354,7 @@ function KurtiMidBanner({ onShop }: { onShop: () => void }) {
             </button>
 
             <a
-              href={`https://wa.me/91${PHONE_NUMBER}?text=Namaste!%20Mujhe%20kurti%20collection%20ke%20bare%20me%20inquiry%20karni%20hai.`}
+             href={`https://wa.me/91${PHONE_NUMBER}?text=Hello!%20I%20would%20like%20to%20inquire%20about%20the%20kurti%20collection.`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 rounded-full border border-[#D8C092]/40 bg-white/10 px-5 py-3 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-md transition hover:bg-white/20"

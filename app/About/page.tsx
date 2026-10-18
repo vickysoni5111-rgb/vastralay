@@ -49,6 +49,19 @@ export default function AboutPage() {
 
       The intricate embroidery, breathable luxury fabrics, and regal color palettes were curated specially by our master craftsmen in Jaipur. Nusrat’s endorsement underscored the mission of Vastralay: to take authentic Indian artistry to global platforms without compromising on comfort or modern luxury. Her inspiring journey continues to motivate young fashion enthusiasts to embrace indigenous weaves.`
     },
+
+  {
+      name: 'Macdonald',
+      image: '/banner/macdonald.png  ',
+      title: 'Red Carpet Heritage Look',
+      desc: 'Macdonald stunning red carpet appearance stands as a true testament to the perfect fusion of Jaipur heritage craftsmanship and contemporary fashion.',
+      badge: 'Success Story #3',
+      fullStory: `Macdonald association with Ankit Tewari Jaipur highlights the global appeal of traditional Indian couture. When she graced the high-profile awards gala in our custom-designed heritage attire, it turned heads internationally. 
+
+      The intricate embroidery, breathable luxury fabrics, and regal color palettes were curated specially by our master craftsmen in Jaipur. Macdonald endorsement underscored the mission of Vastralay: to take authentic Indian artistry to global platforms without compromising on comfort or modern luxury. Her inspiring journey continues to motivate young fashion enthusiasts to embrace indigenous weaves.`
+    },
+
+
   ];
 
   const awardsList = [
@@ -88,6 +101,11 @@ export default function AboutPage() {
       category: 'Cultural Milestone',
       description: 'Acknowledged as a pioneering brand bridging royal heritage with contemporary haute couture.',
     },
+
+
+
+
+
   ];
 
   return (

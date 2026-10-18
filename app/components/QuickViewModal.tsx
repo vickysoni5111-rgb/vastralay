@@ -85,7 +85,7 @@ export default function QuickViewModal({ product, onClose, phoneNumber }: QuickV
 
   const handleWhatsAppBuy = () => {
     const text = encodeURIComponent(
-      `Namaste! Mujhe ye buy karna hai:\n*ID:* ${product.id}\n*Product:* ${product.title}\n*Size:* ${selectedSize}\n*Qty:* ${quantity}\n*Price:* ₹${Number(product.price) * quantity}`
+     `Hello! I would like to purchase this item:\n*ID:* ${product.id}\n*Product:* ${product.title}\n*Size:* ${selectedSize}\n*Quantity:* ${quantity}\n*Price:* ₹${Number(product.price) * quantity}`
     );
     window.open(`https://wa.me/91${phoneNumber}?text=${text}`, '_blank');
   };

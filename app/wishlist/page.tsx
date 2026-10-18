@@ -31,7 +31,7 @@ export default function WishlistPage() {
               <Heart className="h-7 w-7 text-[#800A2D]" />
             </div>
             <h2 className="font-serif text-2xl font-semibold text-[#35201D]">Wishlist is empty</h2>
-            <p className="mt-2 text-sm text-[#8A786D]">Jo pasand aaye usme ♥ dabao.</p>
+            <p className="mt-2 text-sm text-[#8A786D]">Tap ♥ on the items you like.</p>
             <Link
               href="/collection"
               className="mt-6 inline-block rounded-lg bg-[#800A2D] px-6 py-3 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-[#5F071F]"

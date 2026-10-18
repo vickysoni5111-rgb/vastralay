@@ -159,7 +159,7 @@ export default function ContactPage() {
           Explore collection <ArrowRight size={16} />
         </Link>
         <a
-          href={wa('Namaste! Mujhe inquiry karni thi.')}
+         href={wa('Hello! I would like to make an inquiry.')}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/35 px-6 py-3 text-xs font-bold uppercase tracking-wide text-white backdrop-blur-md transition hover:bg-black/55 sm:text-sm"
@@ -199,7 +199,7 @@ export default function ContactPage() {
             </p>
             <div className={cardFoot}>
               <a
-                href={wa('Namaste! Mujhe inquiry karni thi.')}
+        href={wa('Hello! I would like to make an inquiry.')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1.5 font-bold text-[#18AD56] hover:underline"
@@ -260,7 +260,7 @@ export default function ContactPage() {
                 Get the catalogue, check availability and track your order on WhatsApp.
               </p>
               <a
-                href={wa('Namaste! Mujhe collection inquiry karni hai.')}
+        href={wa('Hello! I would like to inquire about the collection.')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-5 block w-full rounded-full bg-[#20C967] py-3 text-center text-sm font-semibold text-white shadow-md transition hover:bg-[#18AD56]"
@@ -475,7 +475,7 @@ export default function ContactPage() {
               Can&rsquo;t find your answer here? Message us on WhatsApp and we&rsquo;ll help.
             </p>
             <a
-              href={wa('Namaste! Mujhe ek sawal poochna tha.')}
+             href={wa('Hello! I have a question.')}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#20C967] px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-[#18AD56]"
