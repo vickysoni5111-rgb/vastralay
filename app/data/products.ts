@@ -853,6 +853,586 @@ const baseProducts: Product[] = [
   ],
   description: 'Stylish classic printed ethnic casual shirt crafted with comfortable fabric, complete with multi-angle gallery views.',
 },
+{
+  id: '41',
+  title: 'Classic Printed Ethnic Casual Shirt',
+  category: 'Shirts',
+  price: 1829,
+  originalPrice: 1889,
+  discount: '25% OFF',
+  rating: 4.9,
+  color: 'Dark Black Printed',
+  fit: 'Slim Fit',
+  fabric: 'Cotton Blend',
+  images: [
+    '/pritned.png',
+    '/pritnedback.png ',
+   
+    '/pritnedmain.png'
+   
+  ],
+  description: 'Stylish classic printed ethnic casual shirt crafted with comfortable fabric, complete with multi-angle gallery views.',
+},
+{
+  id: '42',
+  title: 'Classic Printed Ethnic Casual Shirt',
+  category: 'Shirts',
+  price: 1829,
+  originalPrice: 1889,
+  discount: '25% OFF',
+  rating: 4.9,
+  color: 'Dark Black Printed',
+  fit: 'Slim Fit',
+  fabric: 'Cotton Blend',
+  images: [
+    '/coloredwhite.png',
+    '/ coloredwhiteback.png',
+    '/coloredwhitemain.png',
+
+   
+  ],
+  description: 'Stylish classic printed ethnic casual shirt crafted with comfortable fabric, complete with multi-angle gallery views.',
+},
+{
+  id: '43',
+  title: 'Classic Printed Ethnic Casual Shirt',
+  category: 'Shirts',
+  price: 1829,
+  originalPrice: 1889,
+  discount: '25% OFF',
+  rating: 4.9,
+  color: 'Dark Black Printed',
+  fit: 'Slim Fit',
+  fabric: 'Cotton Blend',
+  images: [
+    '/printendorange.png',
+    '/printendorangeback.png',
+    '/printendorangemain.png',
+
+   
+  ],
+  description: 'Stylish classic printed ethnic casual shirt crafted with comfortable fabric, complete with multi-angle gallery views.',
+},
+
+{
+  id: '44',
+  title: 'Classic Printed Ethnic Casual Shirt',
+  category: 'Shirts',
+  price: 1829,
+  originalPrice: 1889,
+  discount: '25% OFF',
+  rating: 4.9,
+  color: 'Dark Black Printed',
+  fit: 'Slim Fit',
+  fabric: 'Cotton Blend',
+  images: [
+    '/printedyellow.png',
+    '/printedyellowback.png',
+    '/printedyellowmain.png',
+
+   
+  ],
+  description: 'Stylish classic printed ethnic casual shirt crafted with comfortable fabric, complete with multi-angle gallery views.',
+},
+
+
+{
+  id: '45',
+  title: 'Classic Printed Ethnic Casual Shirt',
+  category: 'Shirts',
+  price: 1829,
+  originalPrice: 1889,
+  discount: '25% OFF',
+  rating: 4.9,
+  color: 'Dark Black Printed',
+  fit: 'Slim Fit',
+  fabric: 'Cotton Blend',
+  images: [
+    '/redprintned.png',
+    '/redprintnedback.png',
+    '/redprintnedmain.png',
+
+   
+  ],
+  description: 'Stylish classic printed ethnic casual shirt crafted with comfortable fabric, complete with multi-angle gallery views.',
+},
+
+{
+  id: '46',
+  title: 'Classic Printed Ethnic Casual Shirt',
+  category: 'Shirts',
+  price: 1829,
+  originalPrice: 1889,
+  discount: '25% OFF',
+  rating: 4.9,
+  color: 'Dark Black Printed',
+  fit: 'Slim Fit',
+  fabric: 'Cotton Blend',
+  images: [
+    '/printnedgreen.png',
+    '/printnedgreenback.png',
+    '/printnedgreenmain.png',
+
+   
+  ],
+  description: 'Stylish classic printed ethnic casual shirt crafted with comfortable fabric, complete with multi-angle gallery views.',
+},
+
+{
+  id: '47',
+  title: 'Classic Printed Ethnic Casual Shirt',
+  category: 'Shirts',
+  price: 1829,
+  originalPrice: 1889,
+  discount: '25% OFF',
+  rating: 4.9,
+  color: 'Dark Black Printed',
+  fit: 'Slim Fit',
+  fabric: 'Cotton Blend',
+  images: [
+    '/printed11front.png',
+    '/printed11back.png',
+    '/printed11.png',
+
+   
+  ],
+  description: 'Stylish classic printed ethnic casual shirt crafted with comfortable fabric, complete with multi-angle gallery views.',
+},
+
+
+{
+  id: '48',
+  title: 'Classic Printed Ethnic Casual Shirt',
+  category: 'Shirts',
+  price: 1829,
+  originalPrice: 1889,
+  discount: '25% OFF',
+  rating: 4.9,
+  color: 'Dark Black Printed',
+  fit: 'Slim Fit',
+  fabric: 'Cotton Blend',
+  images: [
+    '/printedcolored.png',
+    '/printedcoloredback.png',
+    '/printedcoloredmain.png',
+
+   
+  ],
+  description: 'Stylish classic printed ethnic casual shirt crafted with comfortable fabric, complete with multi-angle gallery views.',
+},
+
+
+{
+  id: '49',
+  title: 'Classic Printed Ethnic Casual Shirt',
+  category: 'Shirts',
+  price: 1829,
+  originalPrice: 1889,
+  discount: '25% OFF',
+  rating: 4.9,
+  color: 'Dark Black Printed',
+  fit: 'Slim Fit',
+  fabric: 'Cotton Blend',
+  images: [
+    '/flowerprinted.png',
+    '/flowerprintedback.png',
+    '/flowerprintedmain.png   ',
+
+   
+  ],
+  description: 'Stylish classic printed ethnic casual shirt crafted with comfortable fabric, complete with multi-angle gallery views.',
+},
+{
+  id: '50',
+  title: 'Classic Printed Ethnic Casual Shirt',
+  category: 'Shirts',
+  price: 1829,
+  originalPrice: 1889,
+  discount: '25% OFF',
+  rating: 4.9,
+  color: 'Dark Black Printed',
+  fit: 'Slim Fit',
+  fabric: 'Cotton Blend',
+  images: [
+    '/printedflower.png',
+    '/printedflowerback.png',
+    '/printedflowermain.png   ',
+
+   
+  ],
+  description: 'Stylish classic printed ethnic casual shirt crafted with comfortable fabric, complete with multi-angle gallery views.',
+},
+
+{
+  id: '51',
+  title: 'Classic Printed Ethnic Casual Shirt',
+  category: 'Shirts',
+  price: 1829,
+  originalPrice: 1889,
+  discount: '25% OFF',
+  rating: 4.9,
+  color: 'Dark Black Printed',
+  fit: 'Slim Fit',
+  fabric: 'Cotton Blend',
+  images: [
+    '/whiteprinted.png',
+    '/whiteprintedback.png',
+    '/whiteprintedmain.png  ',
+
+   
+  ],
+  description: 'Stylish classic printed ethnic casual shirt crafted with comfortable fabric, complete with multi-angle gallery views.',
+},
+
+{
+  id: '52',
+  title: 'Classic Printed Ethnic Casual Shirt',
+  category: 'Shirts',
+  price: 1829,
+  originalPrice: 1889,
+  discount: '25% OFF',
+  rating: 4.9,
+  color: 'Dark Black Printed',
+  fit: 'Slim Fit',
+  fabric: 'Cotton Blend',
+  images: [
+    '/brown.png',
+    '/brownback.png',
+    '/brownmain.png  ',
+
+   
+  ],
+  description: 'Stylish classic printed ethnic casual shirt crafted with comfortable fabric, complete with multi-angle gallery views.',
+},
+
+{
+  id: '53',
+  title: 'Classic Printed Ethnic Casual Shirt',
+  category: 'Shirts',
+  price: 1829,
+  originalPrice: 1889,
+  discount: '25% OFF',
+  rating: 4.9,
+  color: 'Dark Black Printed',
+  fit: 'Slim Fit',
+  fabric: 'Cotton Blend',
+  images: [
+    '/grenredflower.png',
+    '/grenredflowerback.png',
+    '/ grenredflowermain.png',
+   
+  ],
+  description: 'Stylish classic printed ethnic casual shirt crafted with comfortable fabric, complete with multi-angle gallery views.',
+},
+{
+  id: '54',
+  title: 'Classic Printed Ethnic Casual Shirt',
+  category: 'Shirts',
+  price: 1829,
+  originalPrice: 1889,
+  discount: '25% OFF',
+  rating: 4.9,
+  color: 'Dark Black Printed',
+  fit: 'Slim Fit',
+  fabric: 'Cotton Blend',
+  images: [
+    '/moredesign.png ',
+    '/moredesignback.png',
+    '/moredesignmain.png',
+   
+  ],
+  description: 'Stylish classic printed ethnic casual shirt crafted with comfortable fabric, complete with multi-angle gallery views.',
+},
+{
+  id: '55',
+  title: 'Classic Printed Ethnic Casual Shirt',
+  category: 'Shirts',
+  price: 1829,
+  originalPrice: 1889,
+  discount: '25% OFF',
+  rating: 4.9,
+  color: 'Dark Black Printed',
+  fit: 'Slim Fit',
+  fabric: 'Cotton Blend',
+  images: [
+    '/printedblack.png',
+    '/printedblackback.png',
+    '/printedblackmain.png',
+   
+  ],
+  description: 'Stylish classic printed ethnic casual shirt crafted with comfortable fabric, complete with multi-angle gallery views.',
+},
+
+
+{
+  id: '56',
+  title: 'Classic Printed Ethnic Casual Shirt',
+  category: 'Shirts',
+  price: 1829,
+  originalPrice: 1889,
+  discount: '25% OFF',
+  rating: 4.9,
+  color: 'Dark Black Printed',
+  fit: 'Slim Fit',
+  fabric: 'Cotton Blend',
+  images: [
+    '/whitedesiging.png',
+    '/whitedesigingback.png',
+    '/whitedesigingmain.png',
+   
+  ],
+  description: 'Stylish classic printed ethnic casual shirt crafted with comfortable fabric, complete with multi-angle gallery views.',
+},
+
+
+// Male  kurta pijama
+
+
+{
+  id: '700',
+  title: 'Royal Ethnic Green Kurta ',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+    '/Malekurta/blueprintedkurta.png ',
+    '/Malekurta/blueprintedkurtaback.png',
+    '/Malekurta/blueprintedkurtamain.png ',
+    
+  ],
+},
+
+{
+  id: '701',
+  title: 'White  Printed  Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+    '/Malekurta/whiteprinted.png',
+    '/Malekurta/whiteprintedback.png',
+    '/Malekurta/whiteprintedmain.png',
+    
+  ],
+},
+
+{
+  id: '702',
+  title: 'Blue  Flower Printed  Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+    '/Malekurta/flowerblueprinted.png',
+    '/Malekurta/flowerblueprintedback.png',
+    '/Malekurta/flowerblueprintedmain.png',
+    
+  ],
+},
+
+
+{
+  id: '704',
+  title: 'Yellow Curved Design  Printed  Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+    '/Malekurta/printedyellowcurvdesign.png',
+    '/Malekurta/printedyellowcurvdesignback.png',
+    '/Malekurta/printedyellowcurvdesignmain.png  ',
+    
+  ],
+},
+
+{
+  id: '705',
+  title: 'Blue Printed Design Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+    '/Malekurta/printeddesignblue.png',
+    '/Malekurta/printeddesignblueback.pngg',
+    '/Malekurta/printeddesignbluemain.png',
+    
+  ],
+},
+
+{
+  id: '706',
+  title: 'Blue Printed Design Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+    '/Malekurta/mixcolorwithyellowshadow.png',
+    '/Malekurta/mixcolorwithyellowshadowback.png',
+    '/Malekurta/mixcolorwithyellowshadowmain.png',
+    
+  ],
+},
+
+
+{
+  id: '707',
+  title: 'Mix Orange Printed Design Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+    '/Malekurta/mixorgain.png',
+    '/Malekurta/mixorgainback.png',
+    '/Malekurta/mixorgainmain.png ',
+    
+  ],
+},
+
+
+{
+  id: '708',
+  title: 'Mix Prink  Printed Design Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+    '/Malekurta/pinkprinted.png',
+    '/Malekurta/pinkprintedback.png',
+    '/Malekurta/pinkprintedmain.png',
+    
+  ],
+},
+
+
+
+{
+  id: '709',
+  title: 'Blue Elephant  Printed Design Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+    '/Malekurta/elephantdesign.png',
+    '/Malekurta/elephantdesignback.png',
+    '/Malekurta/elephantdesignmain.png',
+    
+  ],
+},
+
+
+
+{
+  id: '710',
+  title: 'Yellow Printed Design Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+    '/Malekurta/yelloprinted.png',
+    '/Malekurta/yelloprintedback.png',
+    '/Malekurta/yelloprintedmain.png',
+    
+  ],
+},
+{
+  id: '711',
+  title: 'Yellow Elephant  Printed Design Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+    '/Malekurta/yellowelephent.png',
+    '/Malekurta/yellowelephentback.png',
+    '/Malekurta/yellowelephentmain.png',
+    
+  ],
+},
+
+{
+  id: '712',
+  title: 'Yellow Deep Design Printed Design Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+    '/Malekurta/deepdesign.png',
+    '/Malekurta/deepdesignback.pngg',
+    '/Malekurta/deepdesignmain.png',
+    
+  ],
+},
 
 
 // ................Femaile Kurti......................................//
@@ -1101,7 +1681,7 @@ const baseProducts: Product[] = [
 {
   id: '112',
   title: 'Royal Ethnic Pink Kurti Set',
-  category: 'Kurti', // Yeh exact 'Kurti' hona chahiye
+  category: 'Kurti', 
   price: 2499,
   originalPrice: 3499,
   discount: '30% OFF',

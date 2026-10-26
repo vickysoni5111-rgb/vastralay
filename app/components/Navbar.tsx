@@ -1,4 +1,5 @@
 
+
 'use client';
 import { useState, useEffect, useMemo, useRef } from 'react';
 
@@ -9,7 +10,6 @@ import {
   Search,
   Heart,
   ShoppingBasket,
-  UserRound,
   Menu,
   X,
   MapPin,
@@ -38,21 +38,37 @@ type SearchBoxProps = {
   iconWrapperClassName: string;
   iconSize: number;
   onNavigate?: () => void;
+  hintLeftClass?: string;
 };
 
-// Search box: type karte hi products dikhte hain, Enter dabane par /collection?search=... khulta hai
+const searchHints = [
+  'Search best kurti',
+  'Search best T-shirts',
+  'Search male kurta',
+  'Search kids dress',
+  'Search here...',
+];
 function SearchBox({
   placeholder,
   inputClassName,
   iconWrapperClassName,
   iconSize,
   onNavigate,
+  hintLeftClass = 'left-11',
 }: SearchBoxProps) {
   const router = useRouter();
   const [query, setQuery] = useState('');
   const [open, setOpen] = useState(false);
   const boxRef = useRef<HTMLDivElement>(null);
 
+  // har 2.8 second me agla hint dikhega
+  const [hintIndex, setHintIndex] = useState(0);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setHintIndex((prev) => (prev + 1) % searchHints.length);
+    }, 2800);
+    return () => clearInterval(timer);
+  }, []);
   const results = useMemo(
     () => (query.trim() ? searchProducts(query) : []),
     [query]
@@ -92,7 +108,7 @@ function SearchBox({
         type="text"
         suppressHydrationWarning
         value={query}
-        placeholder={placeholder}
+  placeholder={query ? placeholder : ''}
         onChange={(e) => {
           setQuery(e.target.value);
           setOpen(true);
@@ -104,7 +120,19 @@ function SearchBox({
         }}
         className={inputClassName}
       />
-
+      {/* Auto changing hint text */}
+      {!query && (
+        <span
+          className={`pointer-events-none absolute inset-y-0 ${hintLeftClass} right-4 flex items-center overflow-hidden`}
+        >
+          <span
+            key={hintIndex}
+            className="hint-slide whitespace-nowrap text-xs font-medium text-[#8A7B72]"
+          >
+            {searchHints[hintIndex]}
+          </span>
+        </span>
+      )}
       {open && query.trim() && (
         <div className="absolute left-0 right-0 top-full z-50 mt-2 overflow-hidden rounded-2xl border border-[#D8C092] bg-white shadow-[0_15px_40px_rgba(53,19,30,0.18)]">
           {suggestions.length > 0 ? (
@@ -170,6 +198,52 @@ function SearchBox({
     </div>
   );
 }
+function TopMarquee() {
+  const items = Array.from({ length: 6 });
+
+  const Group = ({ hidden = false }: { hidden?: boolean }) => (
+    <div className="flex shrink-0 items-center" aria-hidden={hidden}>
+      {items.map((_, i) => (
+        <div key={i} className="flex items-center gap-3 px-6">
+          <Image
+            src="/logo1.png"
+            alt=""
+            width={22}
+            height={22}
+            className="h-[22px] w-[22px] rounded-full bg-white object-contain p-[1px] ring-1 ring-[#B99450]/70"
+          />
+          <span className="whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.28em] text-[#0C4A6E]">
+            Vastralay Ankit Tewari Jaipur
+          </span>
+          <span className="text-[8px] text-[#B99450]">◆</span>
+        </div>
+      ))}
+    </div>
+  );
+
+  return (
+    <div className="w-full overflow-hidden border-b border-[#BAE6FD] bg-gradient-to-r from-[#E0F2FE] via-[#F0F9FF] to-[#E0F2FE] py-[7px]">
+      <style>{`
+        @keyframes topMarquee {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+        .top-marquee-track {
+          display: flex;
+          width: max-content;
+          animation: topMarquee 45s linear infinite;
+        }
+      `}</style>
+
+      <div className="[mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]">
+        <div className="top-marquee-track">
+          <Group />
+          <Group hidden />
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -177,33 +251,34 @@ export default function Navbar() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const currentCategory = searchParams.get('category');
-const { cartCount, wishlistCount } = useShop();
+  const { cartCount, wishlistCount } = useShop();
 
-const [mounted, setMounted] = useState(false);
-useEffect(() => {
-  setMounted(true);
-}, []);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
-const shownCart = mounted ? cartCount : 0;
-const shownWishlist = mounted ? wishlistCount : 0;
+  const shownCart = mounted ? cartCount : 0;
+  const shownWishlist = mounted ? wishlistCount : 0;
 
   const categoryLinks = [
     { name: 'Home', href: '/' },
-        {name: 'About Us', href: '/About' },
+    { name: 'About Us', href: '/About' },
     { name: 'All Collection', href: '/collection' },
     { name: 'Kurti', href: '/Kurti' },
+    { name: 'Male Kurta', href: '/MaleKurta' },
     { name: 'Shirts', href: '/collection?category=Shirts' },
-    {name: 'Childern',href:'/Childern'},
-
+    { name: 'Childern', href: '/Childern' },
     { name: 'Contact', href: '/Contact' },
   ];
 
   const isActive = (item: { name: string; href: string }) => {
     if (item.name === 'Home') return pathname === '/';
     if (item.name === 'Childern') return pathname === '/Childern';
-        if (item.name === 'About Us') return pathname === '/About';
+    if (item.name === 'About Us') return pathname === '/About';
     if (item.name === 'Contact') return pathname === '/Contact';
     if (item.name === 'Kurti') return pathname === '/Kurti';
+    if (item.name === 'Male Kurta') return pathname === '/MaleKurta';
     if (item.name === 'All Collection') return pathname === '/collection' && !currentCategory;
 
     if (item.href.includes('?category=')) {
@@ -224,17 +299,28 @@ const shownWishlist = mounted ? wishlistCount : 0;
           60% { transform: scale(1.3); opacity: 1; }
           100% { transform: scale(1); }
         }
-        .badge-pop { animation: badgePop 0.35s ease-out; }
-      `}</style>
+badge-pop { animation: badgePop 0.35s ease-out; }
+        @keyframes hintSlide {
+          0%   { transform: translateY(100%); opacity: 0; }
+          15%  { transform: translateY(0); opacity: 1; }
+          85%  { transform: translateY(0); opacity: 1; }
+          100% { transform: translateY(-100%); opacity: 0; }
+        }
+        .hint-slide { animation: hintSlide 2.8s ease-in-out; }
+      `}
+      </style>
+
+      {/* AUTO SLIDING TOP BAR */}
+      <TopMarquee />
 
       <div className="mx-auto max-w-[1600px] px-4 py-3 sm:px-8">
         {/* TOP ROW: Logo, Search Bar, Location, Actions */}
-        <div className="flex items-center justify-between gap-4 pb-3 border-b border-[#EADCC2]/60">
+        <div className="flex items-center justify-between gap-4 border-b border-[#EADCC2]/60 pb-3">
           {/* LOGO & BRAND */}
           <Link
             href="/"
             onClick={closeMobile}
-            className="flex shrink-0 items-center gap-3 group"
+            className="group flex shrink-0 items-center gap-3"
           >
             <div className="relative h-[48px] w-[48px] overflow-hidden rounded-full border-2 border-[#B99450] bg-white p-0.5 shadow-sm transition duration-300 group-hover:scale-105 sm:h-[56px] sm:w-[56px]">
               <Image
@@ -247,34 +333,32 @@ const shownWishlist = mounted ? wishlistCount : 0;
               />
             </div>
             <div className="hidden sm:block">
-              <span className="font-serif text-base font-bold tracking-wide text-[#541622] block">
+              <span className="block font-serif text-base font-bold tracking-wide text-[#541622]">
                 Ankit Tewari
               </span>
-              <span className="text-[10px] tracking-[0.2em] text-[#B99450] uppercase font-semibold">
+              <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#B99450]">
                 Jaipur
               </span>
             </div>
           </Link>
 
-          {/* SEARCH BAR (Center & Spacious) */}
-          <div className="hidden md:flex flex-1 max-w-xl mx-6">
+          {/* SEARCH BAR */}
+          <div className="mx-6 hidden max-w-xl flex-1 md:flex">
             <SearchBox
-              placeholder="Search kurtis, traditional shirts, collections..."
+              placeholder="Search kurtis, male kurta, shirts, collections..."
               iconWrapperClassName="absolute inset-y-0 left-0 flex items-center pl-4 text-[#8F1D2C]/60"
               iconSize={18}
-              inputClassName="w-full rounded-full border border-[#D8C092] bg-[#FAF4EA]/70 py-2.5 pl-11 pr-4 text-xs font-medium text-[#352923] placeholder-gray-500 shadow-inner focus:border-[#541622] focus:bg-white focus:outline-none transition-all"
+              inputClassName="w-full rounded-full border border-[#D8C092] bg-[#FAF4EA]/70 py-2.5 pl-11 pr-4 text-xs font-medium text-[#352923] placeholder-gray-500 shadow-inner transition-all focus:border-[#541622] focus:bg-white focus:outline-none"
             />
           </div>
 
           {/* RIGHT ACTIONS */}
           <div className="flex items-center gap-2 sm:gap-3">
-            {/* Location Selector */}
-            <div className="hidden lg:flex items-center gap-1.5 rounded-full border border-[#D8C092] bg-[#FAF4EA] px-3.5 py-1.5 text-xs font-semibold text-[#541622]">
+            <div className="hidden items-center gap-1.5 rounded-full border border-[#D8C092] bg-[#FAF4EA] px-3.5 py-1.5 text-xs font-semibold text-[#541622] lg:flex">
               <MapPin size={14} className="text-[#8F1D2C]" />
               <span>Jaipur</span>
             </div>
 
-            {/* Cart Icon */}
             <Link
               href="/cart"
               aria-label={`Shopping basket, ${shownCart} items`}
@@ -284,30 +368,28 @@ const shownWishlist = mounted ? wishlistCount : 0;
               <CountBadge count={shownCart} />
             </Link>
 
-            {/* Wishlist Icon */}
             <Link
               href="/wishlist"
               aria-label={`Wishlist, ${shownWishlist} items`}
               className="relative rounded-full border border-[#D8C092]/60 bg-white p-2.5 text-[#352923] shadow-sm transition hover:bg-[#F3E9D8] hover:text-[#8F1D2C]"
             >
-              <Heart size={18} className={shownWishlist > 0 ? 'fill-[#E11D48] text-[#E11D48]' : ''} />
+              <Heart
+                size={18}
+                className={shownWishlist > 0 ? 'fill-[#E11D48] text-[#E11D48]' : ''}
+              />
               <CountBadge count={shownWishlist} />
             </Link>
 
-            {/* WhatsApp Icon */}
             <a
-              href="https://whatsapp.com"
+              href="https://wa.me/919782978218"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"
-              className="hidden sm:flex rounded-full bg-[#25D366] p-2.5 text-white shadow-sm transition hover:scale-105"
+              className="hidden rounded-full bg-[#25D366] p-2.5 text-white shadow-sm transition hover:scale-105 sm:flex"
             >
               <MessageCircle size={18} />
             </a>
 
-           
-
-            {/* Mobile Menu Toggle */}
             <button
               type="button"
               onClick={() => setMobileOpen((open) => !open)}
@@ -319,18 +401,18 @@ const shownWishlist = mounted ? wishlistCount : 0;
           </div>
         </div>
 
-        {/* BOTTOM ROW: Perfectly Centered Category Pill Links */}
-        <div className="hidden lg:flex items-center justify-center gap-3 pt-3">
+        {/* BOTTOM ROW: Category pill links */}
+        <div className="hidden items-center justify-center gap-3 pt-3 lg:flex">
           {categoryLinks.map((item) => {
             const active = isActive(item);
             return (
               <Link
                 key={item.name}
                 href={item.href}
-                className={`rounded-full px-5 py-2 text-xs font-semibold uppercase tracking-[0.08em] transition-all duration-200 whitespace-nowrap shadow-sm ${
+                className={`whitespace-nowrap rounded-full px-5 py-2 text-xs font-semibold uppercase tracking-[0.08em] shadow-sm transition-all duration-200 ${
                   active
-                    ? 'bg-[#EFA00F] text-[#352923] font-bold shadow-md scale-105'
-                    : 'border border-[#D8C092] bg-white text-[#352923] hover:bg-[#FAF4EA] hover:border-[#541622] hover:text-[#541622]'
+                    ? 'scale-105 bg-[#EFA00F] font-bold text-[#352923] shadow-md'
+                    : 'border border-[#D8C092] bg-white text-[#352923] hover:border-[#541622] hover:bg-[#FAF4EA] hover:text-[#541622]'
                 }`}
               >
                 {item.name}
@@ -342,14 +424,14 @@ const shownWishlist = mounted ? wishlistCount : 0;
 
       {/* MOBILE MENU DROPDOWN */}
       {mobileOpen && (
-        <div className="border-t border-[#D8C092] bg-[#FFFCF6] px-5 py-5 shadow-2xl lg:hidden">
-          {/* Mobile Search */}
+        <div className="max-h-[75vh] overflow-y-auto border-t border-[#D8C092] bg-[#FFFCF6] px-5 py-5 shadow-2xl lg:hidden">
           <div className="mb-4">
             <SearchBox
               placeholder="Search products..."
               iconWrapperClassName="absolute inset-y-0 left-0 flex items-center pl-3.5 text-gray-400"
               iconSize={16}
-              inputClassName="w-full rounded-full border border-[#D8C092] bg-[#FAF4EA] py-2.5 pl-10 pr-3 text-xs text-[#352923] focus:outline-none"
+            inputClassName="w-full rounded-full border border-[#D8C092] bg-[#FAF4EA] py-2.5 pl-10 pr-3 text-xs text-[#352923] focus:outline-none"
+              hintLeftClass="left-10"
               onNavigate={closeMobile}
             />
           </div>
@@ -362,8 +444,8 @@ const shownWishlist = mounted ? wishlistCount : 0;
                 onClick={closeMobile}
                 className={`rounded-lg px-4 py-2.5 text-xs font-semibold uppercase tracking-wider transition ${
                   isActive(item)
-                    ? 'bg-[#EFA00F] text-[#352923] font-bold'
-                    : 'bg-white border border-[#EADCC2] text-[#352923] hover:bg-[#FAF4EA]'
+                    ? 'bg-[#EFA00F] font-bold text-[#352923]'
+                    : 'border border-[#EADCC2] bg-white text-[#352923] hover:bg-[#FAF4EA]'
                 }`}
               >
                 {item.name}

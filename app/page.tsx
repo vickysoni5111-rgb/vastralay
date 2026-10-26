@@ -1,16 +1,17 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
+
 import { ChevronLeft, ChevronRight, ArrowRight, ShieldCheck, Truck, RefreshCw, Headphones } from 'lucide-react';
-import  Festival from './Festival/page';
+import Festival from './Festival/page';
 import BannerPage from './banner/page';
 import CardPage from './card/page';
 import VideoSectionPage from './Videos/page';
 import MyLoved from './components/MyLoved';
-import Myvideo from './Myvideo/page'
-
+import Myvideo from './Myvideo/page';
+import Image from 'next/image';
+import Link from 'next/link';
+import { productsData } from './data/products';
 
 const sliderImages = [
   {
@@ -66,6 +67,29 @@ const trustPoints = [
   },
 ];
 
+// Shop By Category: har category ki 3 photo (id ke hisaab se)
+const categoryGroups = [
+  { label: 'Male Kurta', href: '/MaleKurta', ids: [700, 701, 702] },
+  { label: 'Female Kurti', href: '/Kurti', ids: [102, 103, 104] },
+  { label: 'Children Dress', href: '/Childern', ids: [138, 139, 140] },
+  { label: 'Male T-Shirt', href: '/collection?category=Shirts', ids: [5, 6, 7] },
+];
+
+// Order: kurta, kurti, children, shirt, phir dobara ... taaki mix dikhe
+const categorySlides = [0, 1, 2]
+  .flatMap((i) =>
+    categoryGroups.map((g) => {
+      const product = productsData.find((p) => Number(p.id) === g.ids[i]);
+      return {
+        key: `${g.label}-${i}`,
+        label: g.label,
+        href: g.href,
+        image: product?.images?.[0]?.trim(),
+      };
+    })
+  )
+  .filter((s) => s.image);
+
 export default function HomePage() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -86,10 +110,71 @@ export default function HomePage() {
 
   return (
     <>
-     
       <div className="min-h-screen bg-white text-neutral-900">
+        {/* ================= SHOP BY CATEGORY (auto sliding circles) ================= */}
+    
+<section className="border-y border-[#BAE6FD] bg-gradient-to-b from-[#F0F9FF] via-white to-[#E0F2FE]/60 py-4 sm:py-5">
+          <style>{`
+            @keyframes catMarquee {
+              from { transform: translateX(0); }
+              to { transform: translateX(-50%); }
+            }
+            .cat-marquee-track { animation: catMarquee 40s linear infinite; }
+            .cat-marquee-track:hover { animation-play-state: paused; }
+          `}</style>
 
-       
+    <div className="mb-3 px-4 text-center sm:mb-4">
+            <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#B99450]">
+              Vastralay Ankit Tewari Jaipur
+            </span>
+ <h2 className="font-serif text-lg font-bold text-[#541622] sm:text-xl">
+              Shop By Category
+            </h2>
+          </div>
+
+          <div className="overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
+            <div className="cat-marquee-track flex w-max">
+              {[...categorySlides, ...categorySlides].map((c, index) => {
+                const isCopy = index >= categorySlides.length;
+
+                return (
+                  <Link
+                    key={`${c.key}-${index}`}
+                    href={c.href}
+                    aria-hidden={isCopy}
+                    tabIndex={isCopy ? -1 : 0}
+                    className="group flex w-[150px] shrink-0 flex-col items-center px-3 text-center sm:w-[190px]"
+                  >
+                    <span className="rounded-full border-2 border-dashed border-[#B99450]/70 p-1 transition-all duration-500 group-hover:border-[#0C4A6E]">
+                     <span className="relative block h-[68px] w-[68px] overflow-hidden rounded-full border-[2px] border-white bg-[#F0E9E2] shadow-[0_6px_16px_rgba(12,74,110,0.18)] sm:h-[88px] sm:w-[88px]">
+                        <Image
+                          src={c.image as string}
+                          alt={c.label}
+                          fill
+                          unoptimized
+                          referrerPolicy="no-referrer"
+                         sizes="88px"
+                          className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-110"
+                        />
+                      </span>
+                    </span>
+
+                   <span className="mt-2 text-xs font-semibold text-[#352923] transition-colors group-hover:text-[#541622] sm:text-sm">
+                      {c.label}
+                    </span>
+
+                   <span className="mt-0.5 inline-flex items-center gap-1 text-[9px] font-extrabold uppercase tracking-wider text-[#0C4A6E] transition-all group-hover:gap-2 sm:text-[10px]">
+                      Shop Now
+                      <ArrowRight className="h-3 w-3" />
+                    </span>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* ================= HERO SLIDER ================= */}
         <section className="relative w-full h-[62vh] sm:h-[75vh] lg:h-[85vh] overflow-hidden bg-neutral-900">
           {sliderImages.map((slide, index) => (
             <div
@@ -184,8 +269,7 @@ export default function HomePage() {
           </div>
         </section>
 
-          
-
+        {/* ================= TRUST POINTS ================= */}
         <section className="bg-white py-10 px-6 -mt-12 relative z-30">
           <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {trustPoints.map(({ icon: Icon, title, detail }) => (
@@ -205,18 +289,13 @@ export default function HomePage() {
           </div>
         </section>
 
- 
-
-
-<Festival/>
-
-        <CardPage/>
-      <Myvideo/>
-<MyLoved/>
-<BannerPage/>
-<VideoSectionPage/>
+        <Festival />
+        <CardPage />
+        <Myvideo />
+        <MyLoved />
+        <BannerPage />
+        <VideoSectionPage />
       </div>
-  
     </>
   );
 }
