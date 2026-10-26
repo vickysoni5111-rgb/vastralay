@@ -6,7 +6,7 @@ import WhatsAppButton from './WatsAppButton/page';
 import AiStylingAssistant from './AiStylingAssistant/page';
 import AdvertisementModal from './AdvertisementModal/page';
 import { ShopProvider } from './context/ShopContext';
-
+import Preloader from './components/Preloader';
 export default function RootLayout({
   children,
 }: {
@@ -20,6 +20,7 @@ export default function RootLayout({
       >
         <ShopProvider>
           <Suspense fallback={null}>
+             <Preloader />  
             <Navbar />
           </Suspense>
 
