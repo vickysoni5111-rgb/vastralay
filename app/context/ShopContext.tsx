@@ -108,7 +108,7 @@ export function ShopProvider({ children }: { children: ReactNode }) {
       const id = String(product.id);
       if (wishlist.some((i) => i.id === id)) {
         setWishlist((prev) => prev.filter((i) => i.id !== id));
-        showToast('Wishlist se hata diya');
+        showToast('Wishlist is Remove');
       } else {
         setWishlist((prev) => [...prev, toItem(product)]);
         showToast('Your Product is Add in Wishlist ♥');

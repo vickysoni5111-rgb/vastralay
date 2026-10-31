@@ -68,6 +68,10 @@ const heroSlides = [
   },
 ];
 
+// Sliding strip ke circles ka link
+const slideProductHref = (id: string | number) =>
+  `/product?id=${encodeURIComponent(String(id))}`;
+
 // Grid ke columns (Tailwind breakpoints ke hisaab se): 1 / 2 / 3 / 4
 function useGridColumns() {
   const [cols, setCols] = useState(4);
@@ -83,6 +87,91 @@ function useGridColumns() {
   }, []);
 
   return cols;
+}
+
+/* ============================================================
+   CHILDREN SLIDING STRIP (sirf children ke products, auto slide)
+   ============================================================ */
+function ChildrenSlider({ products }: { products: Product[] }) {
+  if (products.length === 0) return null;
+
+  // Jitne zyada products, utna dheere (smooth) chalega
+  const duration = `${Math.max(30, products.length * 3.5)}s`;
+
+  const renderGroup = (hidden: boolean) => (
+    <div className="flex shrink-0 items-start" aria-hidden={hidden}>
+      {products.map((item) => (
+        <Link
+          key={`${hidden ? 'dup' : 'main'}-${item.id}`}
+          href={slideProductHref(item.id)}
+          tabIndex={hidden ? -1 : undefined}
+          className="group flex w-[148px] shrink-0 flex-col items-center px-2 text-center sm:w-[188px]"
+        >
+          <div className="relative h-[104px] w-[104px] rounded-full border-2 border-dashed border-[#CDB88C] bg-white p-[5px] shadow-[0_8px_22px_rgba(12,74,110,0.12)] transition-transform duration-300 group-hover:scale-105 sm:h-[128px] sm:w-[128px]">
+            <div className="relative h-full w-full overflow-hidden rounded-full bg-[#F0E9E2]">
+              <Image
+                src={item.images[0]}
+                alt=""
+                fill
+                unoptimized
+                referrerPolicy="no-referrer"
+                sizes="128px"
+                className="object-cover object-top"
+              />
+            </div>
+          </div>
+
+          <span className="mt-3 line-clamp-1 w-full text-[13px] font-semibold text-[#1F2937] sm:text-sm">
+            {item.title}
+          </span>
+          <span className="mt-1 inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-[#0C4A6E] transition-colors group-hover:text-[#541622]">
+            Shop now
+            <ArrowRight className="h-3 w-3" />
+          </span>
+        </Link>
+      ))}
+    </div>
+  );
+
+  return (
+    <section
+      aria-label="Shop children's dress"
+      className="mt-8 border-y border-[#BAE6FD]/70 bg-gradient-to-b from-[#EEF8FF] via-[#F6FBFF] to-white py-8 sm:mt-10 sm:py-10"
+    >
+      <style>{`
+        @keyframes childrenMarquee {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+        .children-marquee-track {
+          display: flex;
+          width: max-content;
+          animation: childrenMarquee ${duration} linear infinite;
+        }
+        .children-marquee-track:hover { animation-play-state: paused; }
+        @media (prefers-reduced-motion: reduce) {
+          .children-marquee-track { animation: none; }
+        }
+      `}</style>
+
+      <div className="mb-7 text-center">
+        <span className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#B99450] sm:text-[11px]">
+          Vastralay Ankit Tewari Jaipur
+        </span>
+        <h2 className="mt-1.5 font-serif text-2xl font-bold text-[#541622] sm:text-3xl">
+          Shop Children&apos;s Dress
+        </h2>
+      </div>
+
+      {/* Reduced-motion users scroll kar sakte hain, baaki ke liye auto slide */}
+      <div className="overflow-x-auto motion-safe:overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]">
+        <div className="children-marquee-track">
+          {renderGroup(false)}
+          {renderGroup(true)}
+        </div>
+      </div>
+    </section>
+  );
 }
 
 /* ============================================================
@@ -323,6 +412,9 @@ export default function ChildrenPage() {
       <section className="mx-auto w-full max-w-[1500px] px-4 pt-6 sm:px-6 lg:px-10">
         <ChildrenHero onExplore={scrollToProducts} />
       </section>
+
+      {/* ================= CHILDREN SLIDING STRIP ================= */}
+      <ChildrenSlider products={childrenProducts} />
 
       {/* ================= CHILDREN PRODUCTS ================= */}
       <section

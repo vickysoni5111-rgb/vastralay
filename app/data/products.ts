@@ -1435,6 +1435,508 @@ const baseProducts: Product[] = [
 },
 
 
+{
+  id: '713',
+  title: 'Red Deep Design Printed Design Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+    '/Malekurta/redprintned.png',
+    '/Malekurta/redprintnedback.png',
+    '/Malekurta/redprintnedmain.png',
+    
+  ],
+},
+{
+  id: '714',
+  title: 'White Deep Design Printed Design Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+    '/Malekurta/whiteprintned.png',
+     '/Malekurta/whiteprintnedback1.png',
+    '/Malekurta/whiteprintnedback.png',
+   
+    
+  ],
+},
+{
+  id: '715',
+  title: 'Yellow Lines Design Printed Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+    '/Malekurta/yellowlinedesignkurta.png',
+     '/Malekurta/yellowlinedesignkurtaback.png',
+    '/Malekurta/yellowlinedesignkurtamain.png',
+   
+    
+  ],
+},
+
+{
+  id: '716',
+  title: 'Red  Flower Lines Design Printed Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+    '/Malekurta/redflowerlineyellowkurta.png ',
+        '/Malekurta/redflowerlineyellowkurtaback.png',
+     '/Malekurta/redflowerlineyellowkurtamain.png ',
+
+   
+    
+  ],
+},
+
+
+{
+  id: '717',
+  title: 'Red  Flower Lines Design Printed Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+    '/Malekurta/blue.png',
+        '/Malekurta/blueback.png',
+     '/Malekurta/bluemain.png',
+
+   
+    
+  ],
+},
+{
+  id:'718',
+  title: 'Dark blue Lines Design Printed Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+    '/Malekurta/darkblue.png',
+    '/Malekurta/darkblueback.png',
+    '/Malekurta/darkbluemain.png',
+  ],
+},
+
+{
+  id:'719',
+  title: 'Dark Yellow Flower Lines Design Printed Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+    '/Malekurta/yellowdesign.png',
+    '/Malekurta/yellowdesignback.png',
+    '/Malekurta/yellowdesignmain.png',
+  ],
+},
+
+
+{
+  id:'720',
+  title: 'Red blue Lines Design Printed Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+    '/Malekurta/redblueline.png',
+    '/Malekurta/redbluelineback.png',
+    '/Malekurta/redbluelinemain.png',
+  ],
+},
+
+{
+  id:'721',
+  title: 'Red blue Lines Design Printed Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+    '/Malekurta/bluecoloreastheticdesig.png',
+    '/Malekurta/bluecoloreastheticdesigback.png',
+    '/Malekurta/bluecoloreastheticdesigmain.png',
+  ],
+},
+
+
+
+{
+  id:'722',
+  title: 'Rani Color Design Printed Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+    '/Malekurta/pritnedranicolorkurta.png',
+    '/Malekurta/pritnedranicolorbackkurta.png',
+    '/Malekurta/pritnedranicolormainkurta.png ',
+  ],
+},
+
+{
+  id:'723',
+  title: 'Rani Color Design Printed Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+    '/Malekurta/golden.png',
+    '/Malekurta/goldenback.png',
+    '/Malekurta/goldenmain.png',
+  ],
+},
+
+{
+  id:'724',
+  title: 'Silver Design Printed Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+
+    '/Malekurta/silverfront.png',
+    '/Malekurta/silverback.png ',
+        '/Malekurta/silver.png',
+  ],
+},
+
+
+{
+  id:'725',
+  title: 'Silver Orange Design Printed Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+
+    '/Malekurta/orangedesign.png',
+    '/Malekurta/orangedesignback.png',
+        '/Malekurta/orangedesignmain.png',
+  ],
+},
+
+
+
+{
+  id:'726',
+  title: 'White Silver Design Printed Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+
+    '/Malekurta/whitedesign.png',
+    '/Malekurta/whitedesignback.png',
+        '/Malekurta/whitedesignmain.png',
+  ],
+},
+
+{
+  id:'727',
+  title: 'Coffe Color Design Printed Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+
+    '/Malekurta/coffecolor.png',
+    '/Malekurta/coffecolorback.png',
+        '/Malekurta/coffecolormain.png ',
+  ],
+},
+
+{
+  id:'728',
+  title: 'Yellow  Design Printed Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+
+    '/Malekurta/yellowdprintnedesign.png',
+    '/Malekurta/yellowdprintnedesignback.png',
+        '/Malekurta/yellowdprintnedesignmain.png',
+  ],
+},
+
+{
+  id:'729',
+  title: 'Yellow  Design Printed Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+
+    '/Malekurta/bluelinedesign.png',
+         '/Malekurta/bluelinedesignback.png',
+    '/Malekurta/bluelinedesignmain.png',
+   
+  ],
+},
+
+{
+  id:'730',
+  title: 'Red Design Printed Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+
+    '/Malekurta/reddesign.png',
+        '/Malekurta/reddesignback.png',
+         '/Malekurta/reddesignmain.png ',
+
+   
+  ],
+},
+
+{
+  id:'731',
+  title: 'Sky Blue Design Printed Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+
+    '/Malekurta/bluedesign.png',
+        '/Malekurta/bluedesignback.png',
+         '/Malekurta/bluedesignmain.png',
+
+   
+  ],
+},
+
+
+{
+  id:'732',
+  title: 'Sky Blue Design Printed Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+
+    '/Malekurta/printnedbottomflower.png',
+        '/Malekurta/printnedbottomflowermain.png',
+         '/Malekurta/bluedesignmain.png',
+
+   
+  ],
+},
+
+
+{
+  id:'733',
+  title: 'Light Pink Design Printed Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+
+    '/Malekurta/lightpink.png',
+        '/Malekurta/lightpinkmain.png',
+         '/Malekurta/ lightpinkback.png',
+
+   
+  ],
+},
+
+{
+  id:'734',
+  title: 'Light Orange Design Printed Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+
+    '/Malekurta/lightorangeflower.png',
+        '/Malekurta/ lightorangeflowerback.png',
+         '/Malekurta/lightorangeflowermain.png  ',
+
+   
+  ],
+},
+
+{
+  id:'735',
+  title: 'Light Color Silver Printed Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+
+    '/Malekurta/newsilveresthetic.png',
+        '/Malekurta/newsilverestheticback.png',
+         '/Malekurta/newsilverestheticmain.png  ',
+
+   
+  ],
+},
+
+
+{
+  id:'736',
+  title: 'Light  Silver Sky Printed Kurta',
+  category: 'Kurta', 
+  price: 2499,
+  originalPrice: 3499,
+  discount: '30% OFF',
+  rating: 4.8,
+  color: 'GREEN',
+  fit: 'Straight Fit',
+  fabric: 'Georgette / Rayon',
+  description: 'Explore handcrafted ethnic wear, luxury suits, lehengas & artisanal jewellery.',
+  images: [
+
+    '/Malekurta/silversky.png',
+      '/Malekurta/silverskyback.png ',
+        '/Malekurta/silverskymain.png',
+       
+
+   
+  ],
+},   
 // ................Femaile Kurti......................................//
 {
   id: '101',

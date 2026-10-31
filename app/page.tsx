@@ -238,21 +238,24 @@ export default function HomePage() {
             </div>
           ))}
 
-          {/* Navigation Arrows */}
-          <button
-            onClick={prevSlide}
-            aria-label="Previous Slide"
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-white/80 hover:bg-white flex items-center justify-center text-neutral-900 transition shadow"
-          >
-            <ChevronLeft size={22} />
-          </button>
-          <button
-            onClick={nextSlide}
-            aria-label="Next Slide"
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-white/80 hover:bg-white flex items-center justify-center text-neutral-900 transition shadow"
-          >
-            <ChevronRight size={22} />
-          </button>
+         {/* Navigation Arrows */}
+<button
+  type="button"
+  onClick={prevSlide}
+  aria-label="Previous Slide"
+  className="absolute left-4 top-1/2 -translate-y-1/2 z-30 flex h-11 w-11 items-center justify-center rounded-full bg-white/80 text-neutral-900 shadow transition hover:bg-white"
+>
+  <ChevronLeft size={22} />
+</button>
+
+<button
+  type="button"
+  onClick={nextSlide}
+  aria-label="Next Slide"
+  className="absolute right-4 top-1/2 -translate-y-1/2 z-30 flex h-11 w-11 items-center justify-center rounded-full bg-white/80 text-neutral-900 shadow transition hover:bg-white"
+>
+  <ChevronRight size={22} />
+</button>
 
           {/* Slide Indicators */}
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex space-x-2">

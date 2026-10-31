@@ -21,6 +21,94 @@ import { productsData, Product } from '../data/products';
 import QuickViewModal from '../components/QuickViewModal';
 import Banner from '../components/banner';
 
+const productHref = (id: string | number) =>
+  `/product?id=${encodeURIComponent(String(id))}`;
+
+/* ============================================================
+   SHIRTS SLIDING STRIP (sirf shirts, apne aap slide hota hai)
+   ============================================================ */
+function ShirtSlider({ products }: { products: Product[] }) {
+  if (products.length === 0) return null;
+
+  // Jitne zyada products, utna dheere (smooth) chalega
+  const duration = `${Math.max(30, products.length * 3.5)}s`;
+
+  const renderGroup = (hidden: boolean) => (
+    <div className="flex shrink-0 items-start" aria-hidden={hidden}>
+      {products.map((item) => (
+        <Link
+          key={`${hidden ? 'dup' : 'main'}-${item.id}`}
+          href={productHref(item.id)}
+          tabIndex={hidden ? -1 : undefined}
+          className="group flex w-[148px] shrink-0 flex-col items-center px-2 text-center sm:w-[188px]"
+        >
+          <div className="relative h-[104px] w-[104px] rounded-full border-2 border-dashed border-[#CDB88C] bg-white p-[5px] shadow-[0_8px_22px_rgba(12,74,110,0.12)] transition-transform duration-300 group-hover:scale-105 sm:h-[128px] sm:w-[128px]">
+            <div className="relative h-full w-full overflow-hidden rounded-full bg-[#F0E9E2]">
+              <Image
+                src={item.images[0]}
+                alt=""
+                fill
+                unoptimized
+                referrerPolicy="no-referrer"
+                sizes="128px"
+                className="object-cover object-top"
+              />
+            </div>
+          </div>
+
+          <span className="mt-3 line-clamp-1 w-full text-[13px] font-semibold text-[#1F2937] sm:text-sm">
+            {item.title}
+          </span>
+          <span className="mt-1 inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-[#0C4A6E] transition-colors group-hover:text-[#541622]">
+            Shop now
+            <ArrowRight className="h-3 w-3" />
+          </span>
+        </Link>
+      ))}
+    </div>
+  );
+
+  return (
+    <section
+      aria-label="Shop shirts"
+      className="border-y border-[#BAE6FD]/70 bg-gradient-to-b from-[#EEF8FF] via-[#F6FBFF] to-white py-8 sm:py-10"
+    >
+      <style>{`
+        @keyframes shirtMarquee {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+        .shirt-marquee-track {
+          display: flex;
+          width: max-content;
+          animation: shirtMarquee ${duration} linear infinite;
+        }
+        .shirt-marquee-track:hover { animation-play-state: paused; }
+        @media (prefers-reduced-motion: reduce) {
+          .shirt-marquee-track { animation: none; }
+        }
+      `}</style>
+
+      <div className="mb-7 text-center">
+        <span className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#B99450] sm:text-[11px]">
+          Vastralay Ankit Tewari Jaipur
+        </span>
+        <h2 className="mt-1.5 font-serif text-2xl font-bold text-[#541622] sm:text-3xl">
+          Shop Shirts
+        </h2>
+      </div>
+
+      {/* Reduced-motion users scroll kar sakte hain, baaki ke liye auto slide */}
+      <div className="overflow-x-auto motion-safe:overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]">
+        <div className="shirt-marquee-track">
+          {renderGroup(false)}
+          {renderGroup(true)}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function CollectionContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -51,8 +139,11 @@ function CollectionContent() {
    useEffect(() => {
      setSearchQuery(searchParam ?? '');
    }, [searchParam]);
-  const productHref = (id: string | number) =>
-    `/product?id=${encodeURIComponent(String(id))}`;
+
+  // Sliding strip ke liye sirf shirts
+  const shirtProducts = productsData.filter(
+    (item) => item.category.toLowerCase() === 'shirts'
+  );
 
   const filteredProducts = productsData
     .filter((item) => {
@@ -153,6 +244,9 @@ function CollectionContent() {
           </div>
         </div>
       </section>
+
+      {/* SHIRTS SLIDING STRIP */}
+      <ShirtSlider products={shirtProducts} />
 
       {/* COLLECTION PRODUCTS */}
       <section

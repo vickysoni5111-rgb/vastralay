@@ -19,7 +19,7 @@ import {
 } from 'lucide-react';
 
 const PHONE_NUMBER = '9782978218';
-const EMAIL = 'support@ankittewarijaipur.com';
+const EMAIL = 'vastralayankit9@gmail.com';
 const ADDRESS = '20/4, Bhrigu Path, Sector 21, Mansarovar, Jaipur, Rajasthan 302020';
 
 const MAP_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent(ADDRESS)}&z=16&output=embed`;
