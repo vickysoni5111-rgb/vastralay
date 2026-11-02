@@ -7,26 +7,27 @@ import { Share2, Phone, Mail, MapPin } from "lucide-react";
 import { FaInstagram, FaFacebookF, FaTwitter } from "react-icons/fa";
 
 const INSTAGRAM_URL = "https://www.instagram.com/vastralay.india/";
+const EMAIL = "vastralayankit9@gmail.com";
 
 const footerLinks = [
-  {
-    title: "Quick Links",
-    links: [
-      { label: "Shop All Shirts", href: "/" },
-      { label: "New Arrivals", href: "/" },
-      { label: "About Our Brand", href: "/" },
-      { label: "Contact Us", href: "/" },
-      { label: "FAQs & Support", href: "/" },
-    ],
-  },
+{
+  title: "Quick Links",
+  links: [
+    { label: "Shop All Shirts", href: "/collection?category=Shirts" },
+    { label: "New Arrivals", href: "/collection" },
+    { label: "About Our Brand", href: "/About" },
+    { label: "Contact Us", href: "/Contact" },
+    { label: "FAQs & Support", href: "/faqs" },
+  ],
+},
   {
     title: "Customer Care",
     links: [
-      { label: "Shipping & Delivery", href: "/" },
-      { label: "Returns & Exchanges", href: "/" },
-      { label: "Track Your Order", href: "/" },
-      { label: "Privacy Policy", href: "/" },
-      { label: "Terms & Conditions", href: "/" },
+      { label: "Shipping & Delivery", href: "/shipping-delivery" },
+      { label: "Returns & Exchanges", href: "/returns-exchanges" },
+      { label: "Track Your Order", href: "/track-order" },
+      { label: "Privacy Policy", href: "/privacy-policy" },
+      { label: "Terms & Conditions", href: "/terms-conditions" },
     ],
   },
 ];
@@ -203,10 +204,10 @@ export default function Footer() {
                   <Mail size={17} />
                 </span>
                 <a
-                  href="mailto:support@vastralay.com"
+                  href={`mailto:${EMAIL}`}
                   className="break-all transition hover:text-[#9a6421]"
                 >
-                  support@vastralay.com
+                  {EMAIL}
                 </a>
               </li>
             </ul>
@@ -219,7 +220,10 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-[#cdb486]/70 pt-6 text-center text-xs text-[#78644d] md:flex-row md:text-left">
-          <p>© {new Date().getFullYear()} Vastralay. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} Vastralay Dr. Ankit. All rights
+            reserved.
+          </p>
 
           <div className="flex flex-wrap justify-center gap-5">
             <Link
@@ -228,7 +232,10 @@ export default function Footer() {
             >
               Privacy Policy
             </Link>
-            <Link href="/terms" className="transition hover:text-[#9a6421]">
+            <Link
+              href="/terms-conditions"
+              className="transition hover:text-[#9a6421]"
+            >
               Terms & Conditions
             </Link>
           </div>
