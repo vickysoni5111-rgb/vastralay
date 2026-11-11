@@ -44,6 +44,9 @@ export const metadata: Metadata = {
   authors: [{ name: 'Dr. Ankit Tewari' }],
   creator: 'Vastralay',
   publisher: 'Vastralay',
+  icons: {
+    icon: '/logo1.png', // Yahan aapka logo set kar diya hai
+  },
   verification: {
     google: 'M84Kydqg_9c-tKmpb6ruonDEhbxtaWjBm0DSOtdeBc4',
   },
