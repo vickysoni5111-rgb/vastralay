@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import { Playfair_Display, Poppins } from 'next/font/google';
 import './globals.css';
@@ -21,6 +22,56 @@ const bodyFont = Poppins({
   variable: '--font-body',
   display: 'swap',
 });
+
+// Powerful SEO Metadata for Top Google Ranking
+export const metadata: Metadata = {
+  metadataBase: new URL('https://vastralaydrankit.in'),
+  title: {
+    default: 'Vastralay | Best Clothing Collection in Jaipur by Dr. Ankit Tewari',
+    template: '%s | Vastralay Jaipur',
+  },
+  description: 'Explore the best clothing and fashion collection at Vastralay, Jaipur, curated by Dr. Ankit Tewari. Top-quality ethnic, modern, and luxury wear.',
+  keywords: [
+    'Vastralay',
+    'Dr Ankit Tewari',
+    'Dr Ankit Tewari Jaipur',
+    'Vastralay Jaipur',
+    'best clothing collection Jaipur',
+    'Vastralay Dr Ankit Tewari',
+    'luxury fashion store Jaipur',
+    'ethnic wear Jaipur',
+  ],
+  authors: [{ name: 'Dr. Ankit Tewari' }],
+  creator: 'Vastralay',
+  publisher: 'Vastralay',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  openGraph: {
+    title: 'Vastralay | Best Collection by Dr. Ankit Tewari Jaipur',
+    description: 'Discover premium fashion and exclusive clothing collections at Vastralay, Jaipur.',
+    url: 'https://vastralaydrankit.in',
+    siteName: 'Vastralay',
+    locale: 'en_IN',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Vastralay | Best Collection by Dr. Ankit Tewari Jaipur',
+    description: 'Exclusive clothing collection at Vastralay, Jaipur.',
+  },
+  alternates: {
+    canonical: 'https://vastralaydrankit.in',
+  },
+};
 
 export default function RootLayout({
   children,
