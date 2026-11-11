@@ -44,6 +44,9 @@ export const metadata: Metadata = {
   authors: [{ name: 'Dr. Ankit Tewari' }],
   creator: 'Vastralay',
   publisher: 'Vastralay',
+  verification: {
+    google: 'M84Kydqg_9c-tKmpb6ruonDEhbxtaWjBm0DSOtdeBc4',
+  },
   robots: {
     index: true,
     follow: true,
