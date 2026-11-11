@@ -192,10 +192,10 @@ export default function Footer() {
                   <Phone size={17} />
                 </span>
                 <a
-                  href="tel:+919876543210"
+                  href="tel:+919782978218"
                   className="transition hover:text-[#9a6421]"
                 >
-                  +91 98765 43210
+                  +91 9782978218
                 </a>
               </li>
 

@@ -187,7 +187,7 @@ export default function AiStylingAssistant() {
                   <input
                     type="tel"
                     required
-                    placeholder="+91 98765 43210"
+                    placeholder="+91 9782978218"
                     value={personalDetails.phone}
                     onChange={(e) => setPersonalDetails({ ...personalDetails, phone: e.target.value })}
                     className="w-full rounded-xl border border-[#D8C092]/80 bg-[#FAF4EA]/50 px-3.5 py-2.5 text-xs text-[#352923] focus:bg-white focus:outline-none focus:border-[#541622] transition"
